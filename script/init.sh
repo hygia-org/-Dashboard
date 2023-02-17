@@ -13,6 +13,10 @@ docker exec -it superset_app superset db upgrade
 docker exec -it superset_app superset init
 
 
-docker cp data/pgbackup.tar superset_db:/ 
+docker cp data/pgbackup.tar db:/ 
 
-docker exec  superset_db pg_restore -U superset -d superset pgbackup.tar 
+docker exec  db pg_restore -U superset -d superset pgbackup.tar 
+
+clear 
+
+echo "Acess localhost:8088"
