@@ -13,9 +13,13 @@ docker exec -it superset_app superset db upgrade
 docker exec -it superset_app superset init
 
 
-docker cp data/pgbackup.tar db:/ 
+docker cp data/pgbackup.tar superset_db:/ 
 
-docker exec  db pg_restore -U superset -d superset pgbackup.tar 
+docker cp data/dashboard_export.zip superset_app:/app/
+
+docker exec  superset_db pg_restore -U superset -d superset pgbackup.tar 
+            
+docker exec superset_app superset import-dashboards -p dashboard_export.zip -u superset
 
 clear 
 
