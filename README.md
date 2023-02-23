@@ -9,7 +9,7 @@ Check if docker-compose exists, if not then [install it](https://docs.docker.com
 `docker-compose -v `
 
 
-## **Run metabase local**
+## 1.1 **Run metabase local**
 
 Create networks for containers
 
@@ -18,6 +18,30 @@ Create networks for containers
 In the root folder, run the command, run superset application.
 
 `make up  `
+
+
+## 1.2 **Load database**
+
+**Data exemple**  
+
+we can load the data in 2 ways, with example data or your data
+
+**Load sample database**
+
+`restore-example`
+
+**My Data**
+
+`make restore file_path  nrows`
+
+help using command
+
+`make restore-help`
+
+Example
+
+`make restore file_path=./data/yours_data.csv nrows=100`
+
 
 ## **Attention**
 
